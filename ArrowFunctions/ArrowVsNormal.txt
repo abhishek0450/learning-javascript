@@ -1,0 +1,23 @@
+Arrow functions and normal functions in JavaScript have some differences in syntax and behavior. Here are the key differences between them:
+
+1. Syntax:
+   - Arrow function: Arrow functions have a concise syntax using the `=>` (fat arrow) notation. They can be written as `(parameters) => { // function body }`.
+   - Normal function: Normal functions have a more traditional syntax using the `function` keyword. They can be written as `function functionName(parameters) { // function body }`.
+
+2. `this` binding:
+   - Arrow function: Arrow functions do not have their own `this` binding. They inherit the `this` value from the surrounding context lexically (i.e., based on where the function is defined). This is called lexical scoping or lexical `this`.
+   - Normal function: Normal functions have their own `this` binding, which is determined by how the function is called. The `this` value is dynamically determined based on the context of invocation.
+
+3. Arguments object:
+   - Arrow function: Arrow functions do not have their own `arguments` object. Instead, they inherit the `arguments` object from the enclosing scope.
+   - Normal function: Normal functions have their own `arguments` object, which is an array-like object containing the arguments passed to the function.
+
+4. Use of `new` keyword:
+   - Arrow function: Arrow functions cannot be used as constructors and cannot be invoked with the `new` keyword.
+   - Normal function: Normal functions can be used as constructors to create new objects when invoked with the `new` keyword.
+
+5. Context binding:
+   - Arrow function: Arrow functions cannot bind their own `this`, `super`, `arguments`, or `new.target`. They do not have access to these bindings.
+   - Normal function: Normal functions can bind their own `this` value using methods like `bind()`, `call()`, or `apply()`. They have more flexibility in terms of controlling the context.
+
+These differences make arrow functions more suitable for certain use cases, such as in concise one-liners or when you need to maintain the lexical scope, while normal functions provide more flexibility and control over `this` binding and have features like the `arguments` object and constructor functionality. The choice between arrow functions and normal functions depends on the specific requirements of your code and the behavior you need.
