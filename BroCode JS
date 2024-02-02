@@ -1,0 +1,158 @@
+/////////////////////////
+userInput
+let username;
+document.getElementById("SubButton").onclick = function(){
+  username = document.getElementById("myText").value;
+document.getElementById("myH1").textContent = "This is " + username;
+}
+///////////////////////////
+typeCoversion
+important because usually js takes userInput it as string by default.
+let age= window.prompt("enter age");
+//age+=1; // 251 string
+age = Number(age); //typeConverted to number
+age+=1; // 26 number
+console.log(age, typeof age);
+//////////////////////////////
+Math Object 
+let x = 3.14;
+let y = 2
+let z;
+// z=Math.PI; //3.14
+//z=Math.round(x); //3;
+//z=Math.floor(x); //3;
+//z=Math.ceil(x); //4;
+//z=Math.pow(x,y); //9.8596
+//z=Math.sqrt(x); //1.77
+//z=Math.abs(x); //3.14
+console.log(z);
+
+////////////////////////////
+
+TernaryOperator => shoutcut to if else statements helps in assiGn variABLES based on conditons 
+condition ? value if true : value if false
+let age = 25;
+let drink = age >= 18 ? "wine" : "water";
+console.log(drink); //wine
+
+////////////////////
+
+StringsMethods
+let myName = "Ashish";
+console.log(myName.length); //7
+console.log(myName.toUpperCase()); //ASHISH
+ myName.trim(); //removes whitespaces
+myName.replace("Ashish", "Ashi"); //replaces Ashish with Ashi
+console.log(myName.slice(0,4)); //Ashi
+
+//////////////////////
+
+methodChaning => way of using diff methods in a single line
+let myName = "Ashish";
+console.log(myName.toUpperCase().slice(0,4).trim()); //ASHI
+
+////////////////////////
+VariableScopes => where variables are accessible and recognized 
+
+let globalVar = "I am global";
+function myFunction(){  let localVar = "I am local"; }
+
+function myFunction1(){
+  let localVar = "I am local2";}
+here localVar is not accessible outside the function, therefore two diffeent localVar are created.
+but globalVar can't be declared again as it is already declared.(as global variable)
+
+////////////////////////
+spreadOperator >> 
+
+restOperator >> 
+
+//////////////////////
+callbacks = are functions passed as an argument to another function, used to handle asynchrous operations that may take variable amount of time.
+
+function myFunction(callback,x,y){ int result = x+y; callback(result); }
+function myCallback(result){ console.log(result); }
+
+/////////////////////
+
+forEach() => method used to iterate over an array and perform an action on each element.
+fruits.forEach(callback); <<syntax
+let fruits = ["apple", "banana", "orange"];
+fruits.forEach(uppercase);
+fruits.forEach(display);
+
+function display(element){
+  console.log(element);
+}
+function uppercase(element,index,fruits){
+  fruits[index] = element.toUpperCase();
+}
+
+////////////////////
+
+map() => method used to iterate over an array and perform an action on each element.(same as forEach but returns a new array)
+not  affect the orignal array like forEach does
+
+//////////////////////
+filter() => method makes a new array out of filtered elemets from the original array.
+//////////////////////
+reduce() => method reduces an array to a single value.
+let numbers = [1,2,3,4,5];
+let sum = numbers.reduce(add);
+console.log(sum);
+function add(accumulator,element){
+ return accumulator + element;
+}
+accumulator is the value returned by the previous iteration of the callback function. and element is next element in the array.
+///////////////////////
+objects
+let person ={
+  name: "Ashish",
+  age: 25,
+  hobbies: ["coding", "reading"],  
+  greet: function(){
+ console.log(`Hello $(this.name)`); //here this.name is same as person.name
+}
+}
+this keywrod is used to access the properties of an object.
+console.log(person.name);
+also this keyword doesnt work with arrow functions
+
+/////////////////////
+Construtor Functions => special method used for defing properties and methods of objects.
+used capitalize the first letter of the function name
+function Car(make,model,year){
+ this.make = make;
+ this.model = model;
+ this.year = year;
+}
+////now this construtor method can be used to make multiple objects using new keyword
+new keyword used to create an instance of an object that has a constructor function
+let car1 = new Car("Toyota","Camry",2020);
+console.log(car1); //Car { make: 'Toyota', model: 'Camry', year: 2020 }
+
+/////////////////////////////
+classes => used to create objects with shared properties and methods.[ES6]feature.
+class Car{
+  constructor(make,model,year){
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+  displayCars(){
+    console.log(`Car: ${this.make} ${this.model} ${this.year}`);
+ }
+  yearPlusOne(){
+   return this.year++;
+  }
+}
+let car1 = new Car("Toyota","Camry",2020);
+car1.displayCars(); //Car: Toyota Camry 2020
+console.log(car1.yearPlusOne()); //2021
+
+//////////////////////////////////////////
+setters and getters ARE used to control access to an object's properties. setters are used to set the value of a property(or validation), and getters are used to get the value of a property.
+
+////////////////////////////////
+Destructuring  => used to unpack values from arrays, or properties from objects, into distinct variables.
+
